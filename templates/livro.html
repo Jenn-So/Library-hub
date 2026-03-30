@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{ livro.titulo }}</title>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .voltar:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <h1>{{ livro.titulo }}</h1>
+
+            <p><strong>Autor:</strong> {{ livro.autor }}</p>
+            <p><strong>Ano:</strong> {{ livro.ano }}</p>
+            <p><strong>Estoque:</strong> {{ livro.quantidade_estoque }}</p>
+            <p><strong>ISBN:</strong> {{ livro.ISBN }}</p>
+
+            {% if msg %}
+            <p style="color: green;">{{ msg }}</p>
+            {% endif %}
+
+            {% if livro.quantidade_estoque > 0 %}
+            <form method="POST" action="/emprestimo/{{ livro.id_livro }}">
+                <button type="submit" class="btn">Emprestar livro</button>
+            </form>
+            {% else %}
+            <p style="color: red; margin-top: 10px;">
+                Livro indisponível para empréstimo
+            </p>
+            {% endif %}
+
+        </div>
+
+        <a href="/catalogo" class="voltar">← Voltar para o catálogo</a>
+
+    </div>
+
+</body>
+
+</html>

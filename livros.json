@@ -1,0 +1,242 @@
+[
+    {
+        "id_livro": 1,
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "ano": 1899,
+        "quantidade_estoque": 8,
+        "ISBN": "9788572329795"
+    },
+    {
+        "id_livro": 2,
+        "titulo": "O Pequeno Príncipe",
+        "autor": "Antoine de Saint-Exupéry",
+        "ano": 1943,
+        "quantidade_estoque": 8,
+        "ISBN": "9788522005237"
+    },
+    {
+        "id_livro": 3,
+        "titulo": "1984",
+        "autor": "George Orwell",
+        "ano": 1949,
+        "quantidade_estoque": 15,
+        "ISBN": "9788535902774"
+    },
+    {
+        "id_livro": 4,
+        "titulo": "O Alquimista",
+        "autor": "Paulo Coelho",
+        "ano": 1988,
+        "quantidade_estoque": 10,
+        "ISBN": "9780061122415"
+    },
+    {
+        "id_livro": 5,
+        "titulo": "Harry Potter e a Pedra Filosofal",
+        "autor": "J.K. Rowling",
+        "ano": 1997,
+        "quantidade_estoque": 20,
+        "ISBN": "9788532511016"
+    },
+    {
+        "id_livro": 6,
+        "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+        "autor": "J.R.R. Tolkien",
+        "ano": 1954,
+        "quantidade_estoque": 7,
+        "ISBN": "9788533613375"
+    },
+    {
+        "id_livro": 7,
+        "titulo": "A Menina que Roubava Livros",
+        "autor": "Markus Zusak",
+        "ano": 2005,
+        "quantidade_estoque": 9,
+        "ISBN": "9788579620765"
+    },
+    {
+        "id_livro": 8,
+        "titulo": "Orgulho e Preconceito",
+        "autor": "Jane Austen",
+        "ano": 1813,
+        "quantidade_estoque": 6,
+        "ISBN": "9788535914845"
+    },
+    {
+        "id_livro": 9,
+        "titulo": "O Morro dos Ventos Uivantes",
+        "autor": "Emily Brontë",
+        "ano": 1847,
+        "quantidade_estoque": 5,
+        "ISBN": "9788520932306"
+    },
+    {
+        "id_livro": 10,
+        "titulo": "Capitães da Areia",
+        "autor": "Jorge Amado",
+        "ano": 1937,
+        "quantidade_estoque": 13,
+        "ISBN": "9788520932307"
+    },
+    {
+        "id_livro": 11,
+        "titulo": "O Hobbit",
+        "autor": "J.R.R. Tolkien",
+        "ano": 1937,
+        "quantidade_estoque": 11,
+        "ISBN": "9788595084742"
+    },
+    {
+        "id_livro": 12,
+        "titulo": "A Revolução dos Bichos",
+        "autor": "George Orwell",
+        "ano": 1945,
+        "quantidade_estoque": 14,
+        "ISBN": "9788535909551"
+    },
+    {
+        "id_livro": 13,
+        "titulo": "A Culpa é das Estrelas",
+        "autor": "John Green",
+        "ano": 2012,
+        "quantidade_estoque": 16,
+        "ISBN": "9788580572261"
+    },
+    {
+        "id_livro": 14,
+        "titulo": "O Código Da Vinci",
+        "autor": "Dan Brown",
+        "ano": 2003,
+        "quantidade_estoque": 18,
+        "ISBN": "9788575421137"
+    },
+    {
+        "id_livro": 15,
+        "titulo": "O Nome da Rosa",
+        "autor": "Umberto Eco",
+        "ano": 1980,
+        "quantidade_estoque": 4,
+        "ISBN": "9788535914840"
+    },
+    {
+        "id_livro": 16,
+        "titulo": "Grande Sertão: Veredas",
+        "autor": "João Guimarães Rosa",
+        "ano": 1956,
+        "quantidade_estoque": 3,
+        "ISBN": "9788573265689"
+    },
+    {
+        "id_livro": 17,
+        "titulo": "O Diário de Anne Frank",
+        "autor": "Anne Frank",
+        "ano": 1947,
+        "quantidade_estoque": 17,
+        "ISBN": "9788535907816"
+    },
+    {
+        "id_livro": 18,
+        "titulo": "O Sol é Para Todos",
+        "autor": "Harper Lee",
+        "ano": 1960,
+        "quantidade_estoque": 8,
+        "ISBN": "9780061120084"
+    },
+    {
+        "id_livro": 19,
+        "titulo": "Cem Anos de Solidão",
+        "autor": "Gabriel García Márquez",
+        "ano": 1967,
+        "quantidade_estoque": 10,
+        "ISBN": "9788535914841"
+    },
+    {
+        "id_livro": 20,
+        "titulo": "O Senhor das Moscas",
+        "autor": "William Golding",
+        "ano": 1954,
+        "quantidade_estoque": 2,
+        "ISBN": "9780140283334"
+    },
+    {
+        "id_livro": 21,
+        "titulo": "A Metamorfose",
+        "autor": "Franz Kafka",
+        "ano": 1915,
+        "quantidade_estoque": 6,
+        "ISBN": "9788535914846"
+    },
+    {
+        "id_livro": 22,
+        "titulo": "O Retrato de Dorian Gray",
+        "autor": "Oscar Wilde",
+        "ano": 1890,
+        "quantidade_estoque": 7,
+        "ISBN": "9788535914847"
+    },
+    {
+        "id_livro": 23,
+        "titulo": "O Velho e o Mar",
+        "autor": "Ernest Hemingway",
+        "ano": 1952,
+        "quantidade_estoque": 5,
+        "ISBN": "9788535914848"
+    },
+    {
+        "id_livro": 24,
+        "titulo": "O Caçador de Pipas",
+        "autor": "Khaled Hosseini",
+        "ano": 2003,
+        "quantidade_estoque": 9,
+        "ISBN": "9788539004118"
+    },
+    {
+        "id_livro": 25,
+        "titulo": "Ensaio Sobre a Cegueira",
+        "autor": "José Saramago",
+        "ano": 1995,
+        "quantidade_estoque": 12,
+        "ISBN": "9788535914849"
+    },
+    {
+        "id_livro": 26,
+        "titulo": "O Lado Bom da Vida",
+        "autor": "Matthew Quick",
+        "ano": 2008,
+        "quantidade_estoque": 13,
+        "ISBN": "9788580573015"
+    },
+    {
+        "id_livro": 27,
+        "titulo": "A Sombra do Vento",
+        "autor": "Carlos Ruiz Zafón",
+        "ano": 2001,
+        "quantidade_estoque": 11,
+        "ISBN": "9788501067856"
+    },
+    {
+        "id_livro": 28,
+        "titulo": "O Silmarillion",
+        "autor": "J.R.R. Tolkien",
+        "ano": 1977,
+        "quantidade_estoque": 4,
+        "ISBN": "9780345325815"
+    },
+    {
+        "id_livro": 29,
+        "titulo": "O Apanhador no Campo de Centeio",
+        "autor": "J.D. Salinger",
+        "ano": 1951,
+        "quantidade_estoque": 7,
+        "ISBN": "9780316769488"
+    },
+    {
+        "id_livro": 30,
+        "titulo": "A Guerra dos Tronos",
+        "autor": "George R. R. Martin",
+        "ano": 1996,
+        "quantidade_estoque": 19,
+        "ISBN": "9780553573404"
+    }
+]

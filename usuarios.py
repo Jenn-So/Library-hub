@@ -1,4 +1,5 @@
 import sqlite3
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def cadastrar_usuario(nome, email, senha):
 
@@ -13,9 +14,10 @@ def cadastrar_usuario(nome, email, senha):
     )''')
 
     try:
+        senha_hash = generate_password_hash(senha)
         cursor.execute(
             "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
-            (nome, email, senha)
+            (nome, email, senha_hash)
         )
 
         conn.commit()
@@ -32,16 +34,14 @@ def login_usuario(email, senha):
     cursor = conn.cursor()
 
     cursor.execute(
-        'SELECT * FROM usuarios WHERE email = ? AND senha = ?',
-        (email, senha)
+    'SELECT * FROM usuarios WHERE email = ?',
+    (email,)
     )
     usuario = cursor.fetchone()
     conn.close()
 
-    if usuario:
-        print(f"Login bem-sucedido! Bem-vindo, {usuario[1]}!")
+    if usuario and check_password_hash(usuario[3], senha):
         return True
     else:
-        print("Email ou senha incorretos. Tente novamente.")
         return False
 
