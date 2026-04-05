@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Empréstimos{% endblock %}
+
+{% block content %}
+
+<h1>Meus Empréstimos</h1>
+
+<table>
+    <tr>
+        <th>Livro</th>
+        <th>Usuário</th>
+        <th>Ação</th>
+    </tr>
+
+    {% for emp in emprestimos %}
+    <tr>
+        <td>{{ emp[1] }}</td>
+        <td>{{ emp[2] }}</td>
+        <td>
+            <a href="/devolver/{{ emp[0] }}">
+                <button>Devolver</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

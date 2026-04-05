@@ -1,40 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Cadastro - Biblioteca</title>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #f4b400;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .erro {
+            color: red;
+        }
+
+        .sucesso {
+            color: green;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Cadastro de Usuário</h1>
+<div class="card">
+    <h1>📝 Cadastro</h1>
 
-<form method="POST">
+    <form method="POST">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
 
-<label>Nome:</label><br>
-<input type="text" name="nome" required><br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
 
-<label>Email:</label><br>
-<input type="email" name="email" required><br><br>
+    {% if mensagem == "erro" %}
+        <p class="erro">Email já cadastrado</p>
+    {% endif %}
 
-<label>Senha:</label><br>
-<input type="password" name="senha" required><br><br>
+    {% if mensagem == "sucesso" %}
+        <p class="sucesso">Cadastro realizado com sucesso!</p>
+    {% endif %}
 
-<button type="submit">Cadastrar</button>
-
-</form>
-
-{% if erro %}
-<p style="color:red;">❌ Este email já está cadastrado.</p>
-<a href="/login">
-<button>Login</button>
-</a>
-{% endif %}
-{% if sucesso %}
-<p>✅ Cadastro realizado com sucesso!</p>
-<a href="/">
-<button>Voltar para página inicial</button>
-</a>
-{% endif %}
+    <a href="/login">Já tenho conta</a>
+</div>
 
 </body>
 </html>

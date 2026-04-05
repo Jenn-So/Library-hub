@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Livros{% endblock %}
+
+{% block content %}
+
+<h1>Livros Disponíveis</h1>
+
+<table>
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Ano</th>
+        <th>Estoque</th>
+        <th>Ação</th>
+    </tr>
+
+    {% for livro in livros %}
+    <tr>
+        <td>{{ livro[1] }}</td>
+        <td>{{ livro[2] }}</td>
+        <td>{{ livro[3] }}</td>
+
+        <td>
+            {% if livro[4] > 0 %}
+                {{ livro[4] }}
+            {% else %}
+                <span style="color:red;">Indisponível</span>
+            {% endif %}
+        </td>
+
+        <td>
+            {% if livro[4] > 0 %}
+                <a href="/emprestar/{{ livro[0] }}">
+                    <button>Emprestar</button>
+                </a>
+            {% else %}
+                <button disabled>Sem estoque</button>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

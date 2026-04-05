@@ -1,29 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Login - Biblioteca</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #f4b400;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .erro {
+            color: red;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Login</h1>
+<div class="card">
+    <h1>🔐 Login</h1>
 
-<form method="POST">
+    <form method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
 
-<label>Email:</label><br>
-<input type="email" name="email" required><br><br>
+        <button type="submit">Entrar</button>
+    </form>
 
-<label>Senha:</label><br>
-<input type="password" name="senha" required><br><br>
+    {% if mensagem == "erro" %}
+        <p class="erro">Email ou senha inválidos</p>
+    {% endif %}
 
-<button type="submit">Entrar</button>
-
-</form>
-
-{% if erro %}
-<p style="color:red;">❌ Login não registrado</p>
-<a href="/login"><button>Login</button></a>
-{% endif %}
+    <a href="/cadastro">Criar conta</a>
+</div>
 
 </body>
 </html>
