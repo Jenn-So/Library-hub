@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Biblioteca</title>
+    <title>Catálogo - Biblioteca</title>
     <style>
         body {
             background-color: #f5f5f5;
@@ -56,6 +56,13 @@
 </head>
 
 <body>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/meus_emprestimos">📚 Meus Empréstimos</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/logout">Sair</a>
+    </div>
+
+
     <div class="container">
 
         {% for livro in livros %}

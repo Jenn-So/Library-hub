@@ -4,7 +4,7 @@
         "titulo": "Dom Casmurro",
         "autor": "Machado de Assis",
         "ano": 1899,
-        "quantidade_estoque": 8,
+        "quantidade_estoque": 9,
         "ISBN": "9788572329795"
     },
     {
@@ -12,7 +12,7 @@
         "titulo": "O Pequeno Príncipe",
         "autor": "Antoine de Saint-Exupéry",
         "ano": 1943,
-        "quantidade_estoque": 8,
+        "quantidade_estoque": 0,
         "ISBN": "9788522005237"
     },
     {

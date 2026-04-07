@@ -6,13 +6,6 @@ def cadastrar_usuario(nome, email, senha):
     conn = sqlite3.connect('biblioteca.db')
     cursor = conn.cursor()
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT NOT NULL UNIQUE,
-        senha TEXT NOT NULL
-    )''')
-
     try:
         senha_hash = generate_password_hash(senha)
         cursor.execute(
@@ -21,15 +14,16 @@ def cadastrar_usuario(nome, email, senha):
         )
 
         conn.commit()
-        conn.close()
-
         return True
 
     except sqlite3.IntegrityError:
-        conn.close()
         return False
 
+    finally:
+        conn.close()
+
 def login_usuario(email, senha):
+    
     conn = sqlite3.connect('biblioteca.db')
     cursor = conn.cursor()
 

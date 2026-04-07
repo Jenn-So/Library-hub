@@ -73,18 +73,16 @@
             <p><strong>Estoque:</strong> {{ livro.quantidade_estoque }}</p>
             <p><strong>ISBN:</strong> {{ livro.ISBN }}</p>
 
-            {% if msg %}
-            <p style="color: green;">{{ msg }}</p>
-            {% endif %}
-
-            {% if livro.quantidade_estoque > 0 %}
-            <form method="POST" action="/emprestimo/{{ livro.id_livro }}">
-                <button type="submit" class="btn">Emprestar livro</button>
-            </form>
+            {% if ja_emprestado %}
+                <p style="color: rgb(32, 121, 72);">✅ Livro emprestado com sucesso!</p>
+                {% elif livro.quantidade_estoque > 0 %}
+                <form method="POST" action="/emprestimo/{{ livro.id_livro }}">
+                    <button type="submit" class="btn">Emprestar livro</button>
+                </form>
             {% else %}
-            <p style="color: red; margin-top: 10px;">
-                Livro indisponível para empréstimo
-            </p>
+                <p style="color: red; margin-top: 10px;">
+                    Livro indisponível para empréstimo
+                </p>
             {% endif %}
 
         </div>
