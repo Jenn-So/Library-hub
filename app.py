@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from usuarios import cadastrar_usuario, login_usuario
-<<<<<<< HEAD
 from livro import listar_livros, emprestar_livro, criar_tabelas, devolver_livro, listar_emprestimos
 
 app = Flask(__name__)
@@ -39,12 +38,10 @@ def emprestar(livro_id):
 def livros():
     lista = listar_livros()
     return render_template("livros.html", livros=lista)
-=======
 import sqlite3
 
 app = Flask(__name__)
 app.secret_key = "biblioteca_secreta"
->>>>>>> 503f32009591ae1f763b0db5de5bae5e715c19b2
 
 # Rota para a pagina inicial (tela principal)
 @app.route("/")
@@ -54,12 +51,10 @@ def home():
 # Rota para a pagina de cadastro
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
-<<<<<<< HEAD
+
     mensagem = None
-=======
     sucesso = False
     erro = False
->>>>>>> 503f32009591ae1f763b0db5de5bae5e715c19b2
 
     if request.method == "POST":
         nome = request.form["nome"]
@@ -82,30 +77,25 @@ def login():
         email = request.form["email"]
         senha = request.form["senha"]
 
-<<<<<<< HEAD
+
         if login_usuario(email, senha):
             session["usuario"] = email
             return redirect(url_for("dashboard"))
-=======
         resultado = login_usuario(email, senha)
 
-        if resultado:
-            session["email"] = email  # salva o usuário na sessão
-            return redirect(url_for("catalogo"))
->>>>>>> 503f32009591ae1f763b0db5de5bae5e715c19b2
-        else:
-            mensagem = "erro"
+        if resultado:  
+            session["usuario"] = email
+            return redirect(url_for("dashboard"))
+        else: mensagem = "erro"
 
     return render_template("login.html", mensagem=mensagem)
 
-<<<<<<< HEAD
 @app.route("/dashboard")
 def dashboard():
     if "usuario" not in session:
         return redirect(url_for("login"))
 
     return render_template("dashboard.html")
-=======
 # Rota para logout
 @app.route("/logout")
 def logout():
@@ -325,12 +315,6 @@ def devolucao(id):
     conn.close()
 
     return redirect(url_for("meus_emprestimos"))
->>>>>>> 503f32009591ae1f763b0db5de5bae5e715c19b2
-
-@app.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(debug=True)

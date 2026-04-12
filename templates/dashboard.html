@@ -4,7 +4,32 @@
 
 {% block content %}
 
-<h1>Bem-vindo à Biblioteca 📚</h1>
-<p>Escolha uma opção no menu ao lado.</p>
+<h1>📊 Dashboard</h1>
+<p>Bem-vindo, {{ usuario }} 👋</p>
+
+<div class="grid">
+
+    <a href="/catalogo" class="card-link">
+        <div class="card">
+            <h3>📚 Catálogo</h3>
+            <p>Explorar todos os livros disponíveis</p>
+        </div>
+    </a>
+
+    <a href="/meus_emprestimos" class="card-link">
+        <div class="card">
+            <h3>📖 Meus Empréstimos</h3>
+            <p>Ver seus livros emprestados</p>
+        </div>
+    </a>
+
+    <a href="/logout" class="card-link">
+        <div class="card">
+            <h3>🚪 Sair</h3>
+            <p>Encerrar sessão</p>
+        </div>
+    </a>
+
+</div>
 
 {% endblock %}
