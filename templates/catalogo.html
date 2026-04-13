@@ -6,17 +6,38 @@
 
 <h1>📚 Catálogo de Livros</h1>
 
+<style>
+.card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+
 <div class="grid">
 
     {% for livro in livros %}
-
     <a href="/livro/{{ livro.id_livro }}" class="card-link">
         <div class="card">
             <h3>{{ livro.titulo }}</h3>
             <p>{{ livro.autor }}</p>
         </div>
     </a>
-
     {% endfor %}
 
 </div>

@@ -2,36 +2,39 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Biblioteca{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="logo">
-        <h2>📚 Biblioteca</h2>
-    </div>
-
-    <nav class="nav">
+<header>
+    <h2>📚 Biblioteca</h2>
+    <div>
         <a href="/dashboard">Dashboard</a>
-        <a href="/catalogo">Catálogo</a>
+        <a href="/livros">Livros</a>
         <a href="/meus_emprestimos">Empréstimos</a>
-    </nav>
-
-    <div class="user">
-        {% if usuario %}
-            <span>👤 {{ usuario }}</span>
-        {% endif %}
         <a href="/logout">Sair</a>
     </div>
 </header>
 
-<main class="main">
-    {% block content %}{% endblock %}
-</main>
+<div class="container">
+
+    <aside>
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="/dashboard">Início</a></li>
+            <li><a href="/livros">Livros</a></li>
+            <li><a href="/meus_emprestimos">Empréstimos</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</div>
 
 </body>
 </html>

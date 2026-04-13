@@ -22,17 +22,18 @@ def cadastrar_usuario(nome, email, senha):
         )
 
         conn.commit()
+        conn.close()
+
         return True
 
     except sqlite3.IntegrityError:
+        conn.close()
         return False
 
     finally:
         conn.close()
 
-
 def login_usuario(email, senha):
-    
     conn = sqlite3.connect('biblioteca.db')
     cursor = conn.cursor()
 
