@@ -71,7 +71,7 @@ def cadastro():
 # Rota para a pagina de login
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    mensagem = None
+    erro = False
 
     if request.method == "POST":
         email = request.form["email"]
@@ -88,7 +88,7 @@ def login():
             return redirect(url_for("dashboard"))
         else: mensagem = "erro"
 
-    return render_template("login.html", mensagem=mensagem)
+    return render_template("login.html", erro=erro)
 
 @app.route("/dashboard")
 def dashboard():
