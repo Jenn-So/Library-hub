@@ -1,7 +1,9 @@
 import sqlite3
 
 def conectar():
-    return sqlite3.connect('biblioteca.db')
+    conn = sqlite3.connect('biblioteca.db')
+    conn.row_factory = sqlite3.Row  # <- importante para funcionar com Flask
+    return conn
 
 
 # 📚 Criar tabelas
@@ -9,21 +11,25 @@ def criar_tabelas():
     conn = conectar()
     cursor = conn.cursor()
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS livros (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo TEXT NOT NULL,
-        autor TEXT NOT NULL,
-        ano INTEGER,
-        estoque INTEGER NOT NULL
-    )''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS livros (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            titulo TEXT NOT NULL,
+            autor TEXT NOT NULL,
+            ano INTEGER,
+            estoque INTEGER NOT NULL
+        )
+    ''')
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS emprestimos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        livro_id INTEGER,
-        usuario_email TEXT,
-        devolvido INTEGER DEFAULT 0,
-        FOREIGN KEY (livro_id) REFERENCES livros(id)
-    )''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS emprestimos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            livro_id INTEGER,
+            usuario_email TEXT,
+            devolvido INTEGER DEFAULT 0,
+            FOREIGN KEY (livro_id) REFERENCES livros(id)
+        )
+    ''')
 
     conn.commit()
     conn.close()
@@ -43,7 +49,7 @@ def cadastrar_livro(titulo, autor, ano, estoque):
     conn.close()
 
 
-# 📚 Listar livros disponíveis
+# 📚 Listar livros
 def listar_livros():
     conn = conectar()
     cursor = conn.cursor()
@@ -55,7 +61,7 @@ def listar_livros():
     return livros
 
 
-# 📦 Verificar estoque
+# 📦 Ver estoque
 def verificar_estoque(livro_id):
     conn = conectar()
     cursor = conn.cursor()
@@ -65,9 +71,7 @@ def verificar_estoque(livro_id):
 
     conn.close()
 
-    if resultado:
-        return resultado[0]
-    return 0
+    return resultado["estoque"] if resultado else 0
 
 
 # 📥 Emprestar livro
@@ -79,15 +83,13 @@ def emprestar_livro(livro_id, usuario_email):
 
     if estoque <= 0:
         conn.close()
-        return False  # ❌ sem estoque
+        return False
 
-    # diminui estoque
     cursor.execute(
         "UPDATE livros SET estoque = estoque - 1 WHERE id = ?",
         (livro_id,)
     )
 
-    # registra empréstimo
     cursor.execute(
         "INSERT INTO emprestimos (livro_id, usuario_email) VALUES (?, ?)",
         (livro_id, usuario_email)
@@ -96,7 +98,7 @@ def emprestar_livro(livro_id, usuario_email):
     conn.commit()
     conn.close()
 
-    return True  # ✅ sucesso
+    return True
 
 
 # 📤 Devolver livro
@@ -104,7 +106,6 @@ def devolver_livro(emprestimo_id):
     conn = conectar()
     cursor = conn.cursor()
 
-    # pega o livro do empréstimo
     cursor.execute(
         "SELECT livro_id FROM emprestimos WHERE id = ? AND devolvido = 0",
         (emprestimo_id,)
@@ -116,15 +117,13 @@ def devolver_livro(emprestimo_id):
         conn.close()
         return False
 
-    livro_id = resultado[0]
+    livro_id = resultado["livro_id"]
 
-    # marca como devolvido
     cursor.execute(
         "UPDATE emprestimos SET devolvido = 1 WHERE id = ?",
         (emprestimo_id,)
     )
 
-    # aumenta estoque
     cursor.execute(
         "UPDATE livros SET estoque = estoque + 1 WHERE id = ?",
         (livro_id,)

@@ -3,6 +3,9 @@ import sqlite3
 conn = sqlite3.connect('biblioteca.db')
 cursor = conn.cursor()
 
+# 🔥 opcional: limpar tabela antes (evita duplicados)
+cursor.execute("DELETE FROM livros")
+
 cursor.execute("""
 INSERT INTO livros (titulo, autor, ano, estoque)
 VALUES 
